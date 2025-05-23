@@ -87,7 +87,9 @@ helm install istio-ingress ./helm-charts/gateway -n istio-system
 - Helm chart’lar doğrudan resmi Helm reposundan çekilmiş olup, versiyon kontrolü ve özelleştirme amacıyla klasör olarak eklenmiştir.
 
 ## Faydalı Komutlar
+```bash
 kubectl get pods -A
 kubectl get svc -A
 kubectl get hpa
 helm list -A
+```
