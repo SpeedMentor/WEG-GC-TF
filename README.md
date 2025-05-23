@@ -35,7 +35,7 @@ Terraform ile GKE (Google Kubernetes Engine) kümesi kurulur, örnek uygulama Ku
 
 ## Başlarken
 
-1. Terraform ile Altyapı Kurulumu
+# 1. Terraform ile Altyapı Kurulumu
 
 `terraform/` klasörüne girerek Terraform komutlarını çalıştırın:
 
@@ -48,19 +48,20 @@ terraform apply
 Bu adımlar, GCP üzerinde bir GKE kümesi ve bağlı kaynakları oluşturacaktır.
 Not: provider.tf içindeki proje ve kimlik bilgisi ayarlarını güncelleyiniz.
 
-2. Kubernetes Cluster’ına Bağlantı
+# 2. Kubernetes Cluster’ına Bağlantı
 Cluster erişimi için (proje ve cluster adını kendi bilgilerinizle değiştirin):
 gcloud container clusters get-credentials case-cluster --region europe-west1 --project [YOUR_PROJECT_ID]
 
-3. Uygulama Manifestlerini Yükleme
+# 3. Uygulama Manifestlerini Yükleme
 Kubernetes manifestlerini uygulayarak örnek uygulamayı dağıtın:
 kubectl apply -f k8s/deployment.yaml
 kubectl apply -f k8s/service.yaml
 kubectl apply -f k8s/hpa.yaml
-# Eğer KEDA ile autoscaling kullanacaksanız:
+
+Eğer KEDA ile autoscaling kullanacaksanız:
 kubectl apply -f k8s/scalingobject.yaml
 
-4. Helm ile Üçüncü Parti Servislerin Kurulumu
+# 4. Helm ile Üçüncü Parti Servislerin Kurulumu
 Her bir Helm chart klasörü için aşağıdaki örnekteki gibi kurulumu gerçekleştirebilirsiniz:
 helm install monitoring ./helm-charts/kube-prometheus-stack -n monitoring --create-namespace
 helm install keda ./helm-charts/keda -n keda --create-namespace
@@ -69,14 +70,14 @@ helm install istio-ingress ./helm-charts/gateway -n istio-system
 
 İhtiyaca göre kendi values.yaml dosyalarınızı oluşturarak konfigürasyonu özelleştirebilirsiniz.
 
-Notlar
-provider.tf dosyasında GCP proje bilgilerinizi ve kimlik doğrulama ayarlarınızı güncelleyin.
-Uygulama manifestlerinde gerekliyse nodeSelector kullanarak pod’ların doğru node pool üzerinde çalışmasını sağlayın.
-KEDA ScaledObject kullanıyorsanız, aynı deployment için standart HPA kaydını kaldırın.
-Prometheus-Grafana, KEDA ve Istio kurulumlarında namespace’leri doğru belirleyin.
-Helm chart’lar doğrudan resmi Helm reposundan çekilmiş olup, versiyon kontrolü ve özelleştirme amacıyla klasör olarak eklenmiştir.
+# Notlar
+- provider.tf dosyasında GCP proje bilgilerinizi ve kimlik doğrulama ayarlarınızı güncelleyin.
+- Uygulama manifestlerinde gerekliyse nodeSelector kullanarak pod’ların doğru node pool üzerinde çalışmasını sağlayın.
+- KEDA ScaledObject kullanıyorsanız, aynı deployment için standart HPA kaydını kaldırın.
+- Prometheus-Grafana, KEDA ve Istio kurulumlarında namespace’leri doğru belirleyin.
+- Helm chart’lar doğrudan resmi Helm reposundan çekilmiş olup, versiyon kontrolü ve özelleştirme amacıyla klasör olarak eklenmiştir.
 
-Faydalı Komutlar
+# Faydalı Komutlar
 kubectl get pods -A
 kubectl get svc -A
 kubectl get hpa
