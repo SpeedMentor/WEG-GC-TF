@@ -11,25 +11,7 @@ Terraform ile GKE (Google Kubernetes Engine) kümesi kurulur, örnek uygulama Ku
 ---
 
 ## Dizin Yapısı
-.
-├── terraform/ # GCP ve GKE için altyapı kodları
-│ ├── provider.tf
-│ └── main.tf
-│
-├── k8s/ # Uygulama dağıtım ve ölçekleme manifestleri
-│ ├── deployment.yaml
-│ ├── service.yaml
-│ ├── hpa.yaml
-│ └── scalingobject.yaml
-│
-├── helm-charts/ # Üçüncü parti Helm chart klasörleri
-│ ├── kube-prometheus-stack/
-│ ├── keda/
-│ ├── istiod/
-│ └── gateway/
-│
-└── WEG - Case Study - Eren Fidan.pdf
-└── README.md
+<pre> . ├── terraform/ # GCP ve GKE için altyapı kodları │ ├── provider.tf │ └── main.tf │ ├── k8s/ # Uygulama dağıtım ve ölçekleme manifestleri │ ├── deployment.yaml │ ├── service.yaml │ ├── hpa.yaml │ └── scalingobject.yaml │ ├── helm-charts/ # Üçüncü parti Helm chart klasörleri │ ├── kube-prometheus-stack/ │ ├── keda/ │ ├── istiod/ │ └── gateway/ │ ├── WEG - Case Study - Eren Fidan.pdf └── README.md </pre>
 
 ---
 
