@@ -11,6 +11,7 @@ Terraform ile GKE (Google Kubernetes Engine) kümesi kurulur, örnek uygulama Ku
 ---
 
 ## Dizin Yapısı
+```
 .
 ├── terraform/                # GCP ve GKE için altyapı kodları
 │   ├── provider.tf
@@ -30,6 +31,7 @@ Terraform ile GKE (Google Kubernetes Engine) kümesi kurulur, örnek uygulama Ku
 │
 ├── WEG - Case Study - Eren Fidan.pdf
 └── README.md
+```
 
 ---
 
