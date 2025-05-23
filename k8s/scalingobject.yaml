@@ -1,0 +1,15 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: php-apache-scaledobject
+  namespace: default
+spec:
+  scaleTargetRef:
+    name: php-apache
+  minReplicaCount: 1
+  maxReplicaCount: 3
+  triggers:
+  - type: cpu
+    metadata:
+      type: Utilization
+      value: "25"
