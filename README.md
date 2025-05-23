@@ -37,7 +37,7 @@ Terraform ile GKE (Google Kubernetes Engine) kümesi kurulur, örnek uygulama Ku
 
 ## Başlarken
 
-1. Terraform ile Altyapı Kurulumu
+### 1. Terraform ile Altyapı Kurulumu
 
 `terraform/` klasörüne girerek Terraform komutlarını çalıştırın:
 
