@@ -47,16 +47,18 @@ terraform init
 terraform plan
 terraform apply
 ```
-Bu adımlar, GCP üzerinde bir GKE kümesi ve bağlı kaynakları oluşturacaktır.
+Bu adımlar, GCP üzerinde bir GKE kümesi ve bağlı kaynakları oluşturacaktır.  
 Not: provider.tf içindeki proje ve kimlik bilgisi ayarlarını güncelleyiniz.
 
 2. Kubernetes Cluster’ına Bağlantı
+
 Cluster erişimi için (proje ve cluster adını kendi bilgilerinizle değiştirin):
 ```bash
 gcloud container clusters get-credentials case-cluster --region europe-west1 --project [YOUR_PROJECT_ID]
 ```
 
 3. Uygulama Manifestlerini Yükleme
+
 Kubernetes manifestlerini uygulayarak örnek uygulamayı dağıtın:
 ```bash
 kubectl apply -f k8s/deployment.yaml
@@ -69,6 +71,7 @@ kubectl apply -f k8s/scalingobject.yaml
 ```
 
 4. Helm ile Üçüncü Parti Servislerin Kurulumu
+
 Her bir Helm chart klasörü için aşağıdaki örnekteki gibi kurulumu gerçekleştirebilirsiniz:
 ```bash
 helm install monitoring ./helm-charts/kube-prometheus-stack -n monitoring --create-namespace
